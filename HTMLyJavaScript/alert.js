@@ -1,2 +1,2 @@
 // Esto es una alerta en pantalla
-alert("Desea continuar...");
+alert("Estas listo para continuar!!!...");
