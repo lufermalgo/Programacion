@@ -1,61 +1,32 @@
-function aleatorio(minimo, maximo) {
-var numero = Math.floor( Math.random() * (maximo - minimo + 1 ) + minimo )
-return numero;
-}
+$(function() {
+    $('input[type="radio"]').click(
+      function(){
+        var opcionUsuario = $('input:radio[name=opcionUsuario]:checked').val();
 
-var piedra = 0;
-var papel = 1;
-var tijera = 2;
+        function aleatorio(minimo, maximo) {
+        var numero = Math.floor( Math.random() * (maximo - minimo + 1 ) + minimo )
+        return numero;
+        }
 
-var opciones = ["piedra", "papel", "tijera"];
+        var opcines = ["piedra", "papel", "tijera"];
 
+        var opcionUsuario;
+        var evaluar;
+        var opcionMaquina = opcines[aleatorio(0,2)];
 
-var opcionUsuario;
-var opcionMaquina = aleatorio(0,2);
-
-opcionUsuario = prompt("¿Que eliges?\nPiedra: 0\nPapel: 1\nTijera: 2", 0);
-
-alert("Escogio la opcion " + opciones[opcionUsuario]);
-alert("JavaScript escogió " + opciones[opcionMaquina]);
-
-
-if (opcionUsuario == piedra) {
-	if (opcionMaquina == piedra) {
-		alert("Empate");
-	}
-	else if (opcionMaquina == papel) {
-		alert("Perdiste :(");
-	}
-	else if (opcionMaquina == tijera) {
-		alert("Ganaste! :)");
-	}
-} 
-else if (opcionUsuario == papel) {
-	if (opcionMaquina == piedra) {
-		alert("Ganaste! :)");
-	}
-	else if (opcionMaquina == papel) {
-		alert("Empate.");
-	}
-	else if (opcionMaquina == tijera) {
-		alert("Perdiste :(");
-	}
-} 
-else if (opcionUsuario == tijera) {
-	if (opcionMaquina == piedra) {
-		alert("Perdiste :(");
-	}
-	else if (opcionMaquina == papel) {
-		alert("Ganaste! :)");
-	}
-	else if (opcionMaquina == tijera) {
-		alert("Empate.");
-	}
-} 
-else {
-	alert("Opcion no valida, intente de nuevo");
-	opcionUsuario;
-}
-
-
-//alert("Funciona!");
+        if (opcionUsuario == opcionMaquina) {
+          evaluar = "Empate";
+        } else if ((opcionUsuario == "piedra" && opcionMaquina == "tijera") || (opcionUsuario == "papel" && opcionMaquina == "piedra") || (opcionUsuario == "tijera" && opcionMaquina == "papel")) {
+            evaluar = "Ganaste";
+            var actual = parseInt($('.usuario').html());
+            actual += parseInt(1);
+            $('.usuario').html(actual);
+        } else {
+          evaluar = "Perdiste";
+          var actual = parseInt($('.ordenador').html());
+          actual += parseInt(1);
+          $('.ordenador').html(actual);
+        }
+        $('#resultado').html("Usuario juega " + opcionUsuario + " - Ordenador juega " + opcionMaquina + "<br> El resultado es " + evaluar);
+    });
+});

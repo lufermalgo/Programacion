@@ -1,0 +1,33 @@
+body {
+  background: #fafafa;
+  color: #125688;
+  font-family: montserrat
+}
+
+#main-conteiner {
+  margin: 30px auto;
+}
+
+.site-footer {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.jugador {
+  border: 1px solid #edeeee;
+  font-size: 25px;
+  border-radius: 3px;
+  padding: 10px 10px;
+}
+
+.usuario,
+.ordenador {
+  font-size: 80px;
+  text-align: center;
+}
+
+.opciones,
+.resultado,
+.marcador {
+  text-align: center;
+}
