@@ -1,7 +1,9 @@
-$(function() {
-    $('input[type="radio"]').click(
-      function(){
-        var opcionUsuario = $('input:radio[name=opcionUsuario]:checked').val();
+$(function () {
+    $('button, input[type="button"]').click(
+      function (){
+
+        // var opcionUsuario = document.getElementById("opciones").value;
+        var opcionUsuario = $('input:button[name="opcionUsuario"]').val();
 
         function aleatorio(minimo, maximo) {
         var numero = Math.floor( Math.random() * (maximo - minimo + 1 ) + minimo )
